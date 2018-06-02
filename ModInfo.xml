@@ -1,0 +1,18 @@
+<Mod ID="RaftCheatMenu">
+  <Compatible>1.01b</Compatible>
+  <Button Standard="F1" ID="menu">
+    <Name>
+      <EN>Menu</EN>
+    </Name>
+    <Description>
+      <EN>open menu</EN>
+    </Description>
+  </Button>
+  <Name>
+    <EN>RaftCheatMenu</EN>
+  </Name>
+  <Description>
+    <EN>CheatMenu</EN>
+  </Description>
+  <Version>1.0</Version>
+</Mod>
