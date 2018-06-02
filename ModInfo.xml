@@ -8,6 +8,14 @@
       <EN>open menu</EN>
     </Description>
   </Button>
+  <Button Standard="F3" ID="flymode">
+    <Name>
+      <EN>Fly Mode</EN>
+    </Name>
+    <Description>
+      <EN>lets you fly</EN>
+    </Description>
+  </Button>
   <Name>
     <EN>RaftCheatMenu</EN>
   </Name>

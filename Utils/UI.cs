@@ -18,7 +18,7 @@ namespace RaftCheatMenu.Utils
 
         public static void AddLabel(string text, float x = 20, float width = 150)
         {
-            GUI.Label(new Rect(x, RCM.Y, width, 30), text, RCM.labelStyle);
+            GUI.Label(new Rect(x, RCM.Y, width, 20), text, RCM.labelStyle);
             RCM.IncreaseY();
         }
 
@@ -29,6 +29,13 @@ namespace RaftCheatMenu.Utils
             updateValue = GUI.HorizontalSlider(new Rect(x, RCM.Y + 3f, width, height), updateValue, minValue, maxValue);
             RCM.IncreaseY();
             return updateValue;
+        }
+
+        public static bool AddButton(string text, float x = 20, float width = 180)
+        {
+            var result = GUI.Button(new Rect(x, RCM.Y, width, 20), text);
+            RCM.IncreaseY();
+            return result;
         }
         /*
         public static void AddRadioButtons(ref int updateValue, string[] texts, int xCount, float x = Padding, float width = 250, float height = 20, bool increaseY = false, bool autoAlign = true)

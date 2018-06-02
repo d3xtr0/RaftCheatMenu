@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath\)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -22,80 +22,80 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    
   </ItemGroup>
   <ItemGroup>
     <Reference Include="BaseModLib">
       <HintPath>../../../libs/BaseModLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="Assembly-CSharp-firstpass">
+    <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/Assembly-CSharp-firstpass.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="Assembly-CSharp">
+    <Reference Include="Assembly-CSharp">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="Mono.Security">
+    <Reference Include="Mono.Security">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/Mono.Security.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="Mono.Security">
+    <Reference Include="Mono.Security">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/Mono.Security.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="mscorlib">
+    <Reference Include="mscorlib">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/mscorlib.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="NestedPrefabs">
+    <Reference Include="NestedPrefabs">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/NestedPrefabs.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="Sirenix.OdinInspector.Attributes">
+    <Reference Include="Sirenix.OdinInspector.Attributes">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/Sirenix.OdinInspector.Attributes.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="System.Core">
+    <Reference Include="System.Core">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/System.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="System">
+    <Reference Include="System">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/System.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="TextMeshPro-2017.1-1.0.56-Runtime">
+    <Reference Include="TextMeshPro-2017.1-1.0.56-Runtime">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/TextMeshPro-2017.1-1.0.56-Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.Analytics">
+    <Reference Include="UnityEngine.Analytics">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.Analytics.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine">
+    <Reference Include="UnityEngine">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.Networking">
+    <Reference Include="UnityEngine.Networking">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.Networking.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.Timeline">
+    <Reference Include="UnityEngine.Timeline">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.Timeline.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.UI">
+    <Reference Include="UnityEngine.UI">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
-
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Overwrites\PlayerStats.cs"  />
-<Compile Include="RCM.cs"  />
-<Compile Include="Utils\UI.cs"  />
-
+    <Compile Include="Overwrites\FirstPersonCharacterController.cs" />
+    <Compile Include="Overwrites\Inventory.cs" />
+    <Compile Include="Overwrites\PlayerStats.cs" />
+    <Compile Include="Overwrites\Weather.cs" />
+    <Compile Include="RCM.cs" />
+    <Compile Include="Utils\UI.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
