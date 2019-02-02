@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using LlockhamIndustries.Misc;
 using ModAPI;
 using ModAPI.Attributes;
 using RaftCheatMenu.Utils;
 using UnityEngine;
-using Input = ModAPI.Input;
 
 namespace RaftCheatMenu
 {
@@ -50,7 +48,7 @@ namespace RaftCheatMenu
         {
             if (visible)
             {
-                GUI.skin = Interface.Skin;
+                GUI.skin = Gui.Skin;
                 Width = Mathf.Clamp(Camera.main.pixelWidth / 2, 700, Camera.main.pixelWidth);
                 MenuRect = new Rect(10, 10, Mathf.Clamp(Camera.main.pixelWidth / 2, 700, Camera.main.pixelWidth), Height);
 
@@ -82,139 +80,139 @@ namespace RaftCheatMenu
                 switch (CurrentTab)
                 {
                     case 0: // Cheats
+                    {
+                        ScrollPosition = GUI.BeginScrollView(new Rect(MenuRect.xMin, Y, Width, Height - ToolbarHeight - 5), ScrollPosition, new Rect(0, 0, Width - 24, this.scroller));
+                        Y = Padding;
+
+                        UI.AddCheckBox(ref Cheat.GodMode, "God Mode");
+
+                        if (UI.AddButton("Set Anchor"))
                         {
-                            ScrollPosition = GUI.BeginScrollView(new Rect(MenuRect.xMin, Y, Width, Height - ToolbarHeight - 5), ScrollPosition, new Rect(0, 0, Width - 24, this.scroller));
-                            Y = Padding;
+                            _Raft.AddAnchor(_Raft.transform, false, null);
+                        }
+                        IncreaseY(-30);
+                        if (UI.AddButton("Remove Anchor", 220))
+                        {
+                            _Raft.RemoveAnchor(_Raft.transform);
+                        }
 
-                            UI.AddCheckBox(ref Cheat.GodMode, "God Mode");
+                        this.scroller = Y + 15;
+                        GUI.EndScrollView();
+                        break;
+                    }
+                    case 1: //Environment
+                    {
+                        ScrollPosition = GUI.BeginScrollView(new Rect(MenuRect.xMin, Y, Width, Height - ToolbarHeight - 5), ScrollPosition, new Rect(0, 0, Width - 24, this.scroller));
+                        Y = Padding;
 
-                            if (UI.AddButton("Set Anchor"))
+                        UI.AddLabel("Time");
+                        UI.AddCheckBox(ref Cheat.fixTimeScale, "Pause");
+                        if (_AzureSkyController)
+                        {
+                            if (UI.AddButton("+1h"))
                             {
-                                _Raft.AddAnchor(_Raft.transform, false, null);
+                                float at = _AzureSkyController.Azure_Timeline;
+                                at += 1f;
+                                if (at >= 24f)
+                                {
+                                    at -= 24f;
+                                }
+                                _AzureSkyController.AzureSetTime(at, _AzureSkyController.Azure_DayCycle);
                             }
                             IncreaseY(-30);
-                            if (UI.AddButton("Remove Anchor", 220))
+                            if (UI.AddButton("-1h", 220))
                             {
-                                _Raft.RemoveAnchor(_Raft.transform);
+                                float at = _AzureSkyController.Azure_Timeline;
+                                at -= 1f;
+                                if (at <= 0f)
+                                {
+                                    at += 24f;
+                                }
+                                _AzureSkyController.AzureSetTime(at, _AzureSkyController.Azure_DayCycle);
                             }
 
-                            this.scroller = Y + 15;
-                            GUI.EndScrollView();
-                            break;
+                            UI.AddSlider(ref _AzureSkyController.Azure_FogDistance, 50, 5000, "Fog Distance");
                         }
-                    case 1: //Environment
+
+                        UI.AddLabel("Weather");
+                        foreach (var weather in Cheat._WeatherConnection)
                         {
-                            ScrollPosition = GUI.BeginScrollView(new Rect(MenuRect.xMin, Y, Width, Height - ToolbarHeight - 5), ScrollPosition, new Rect(0, 0, Width - 24, this.scroller));
-                            Y = Padding;
-
-                            UI.AddLabel("Time");
-                            UI.AddCheckBox(ref Cheat.fixTimeScale, "Pause");
-                            if (_AzureSkyController)
+                            if (UI.AddButton(weather.weatherObject.name))
                             {
-                                if (UI.AddButton("+1h"))
-                                {
-                                    float at = _AzureSkyController.Azure_Timeline;
-                                    at += 1f;
-                                    if (at >= 24f)
-                                    {
-                                        at -= 24f;
-                                    }
-                                    _AzureSkyController.AzureSetTime(at, _AzureSkyController.Azure_DayCycle);
-                                }
-                                IncreaseY(-30);
-                                if (UI.AddButton("-1h", 220))
-                                {
-                                    float at = _AzureSkyController.Azure_Timeline;
-                                    at -= 1f;
-                                    if (at <= 0f)
-                                    {
-                                        at += 24f;
-                                    }
-                                    _AzureSkyController.AzureSetTime(at, _AzureSkyController.Azure_DayCycle);
-                                }
-
-                                UI.AddSlider(ref _AzureSkyController.Azure_FogDistance, 50, 5000, "Fog Distance");
+                                _WeatherManager.SetWeather(weather.weatherObject.name, true);
                             }
-
-                            UI.AddLabel("Weather");
-                            foreach (var weather in Cheat._WeatherConnection)
-                            {
-                                if (UI.AddButton(weather.weatherObject.name))
-                                {
-                                    _WeatherManager.SetWeather(weather.weatherObject.name, true);
-                                }
-                            }
-
-                            this.scroller = Y + 15;
-                            GUI.EndScrollView();
-                            break;
                         }
+
+                        this.scroller = Y + 15;
+                        GUI.EndScrollView();
+                        break;
+                    }
                     case 2: //Player
+                    {
+                        ScrollPosition = GUI.BeginScrollView(new Rect(MenuRect.xMin, Y, Width, Height - ToolbarHeight - 5), ScrollPosition, new Rect(0, 0, Width - 24, this.scroller));
+                        Y = Padding;
+
+                        UI.AddSlider(ref Cheat.SpeedMultiplier, 1, 20, "Player Speed");
+
+                        if (UI.AddButton("Add Durability to HotSlot", 20, 300))
                         {
-                            ScrollPosition = GUI.BeginScrollView(new Rect(MenuRect.xMin, Y, Width, Height - ToolbarHeight - 5), ScrollPosition, new Rect(0, 0, Width - 24, this.scroller));
-                            Y = Padding;
-
-                            UI.AddSlider(ref Cheat.SpeedMultiplier, 1, 20, "Player Speed");
-
-                            if (UI.AddButton("Add Durability to HotSlot", 20, 300))
-                            {
-                                _Network_Player.Inventory.RemoveDurabillityFromHotSlot(-100);
-                            }
-
-                            this.scroller = Y + 15;
-                            GUI.EndScrollView();
-                            break;
+                            _Network_Player.Inventory.RemoveDurabillityFromHotSlot(-100);
                         }
+
+                        this.scroller = Y + 15;
+                        GUI.EndScrollView();
+                        break;
+                    }
                     case 3: //Spawn
-                        {
-                            break;
-                        }
+                    {
+                        break;
+                    }
                     case 4: //Inventory
+                    {
+                        ScrollPosition = GUI.BeginScrollView(new Rect(MenuRect.xMin, Y, Width, Height - ToolbarHeight - 5), ScrollPosition, new Rect(0, 0, Width - 24, this.scroller));
+                        Y = Padding;
+
+                        var items = ItemManager.GetAllItems();
+                        foreach (Item_Base current in items)
                         {
-                            ScrollPosition = GUI.BeginScrollView(new Rect(MenuRect.xMin, Y, Width, Height - ToolbarHeight - 5), ScrollPosition, new Rect(0, 0, Width - 24, this.scroller));
-                            Y = Padding;
-
-                            var items = ItemManager.GetAllItems();
-                            foreach (Item_Base current in items)
+                            UnityEngine.GUI.Label(new Rect(20f, Y, 270f, 20f), current.UniqueName + " [" + current.UniqueIndex + "]", labelStyle);
+                            if (UnityEngine.GUI.Button(new Rect(290f, Y, 40f, 20f), "+1"))
                             {
-                                UnityEngine.GUI.Label(new Rect(20f, Y, 270f, 20f), current.UniqueName + " [" + current.UniqueIndex + "]", labelStyle);
-                                if (UnityEngine.GUI.Button(new Rect(290f, Y, 40f, 20f), "+1"))
-                                {
-                                    _Network_Player.Inventory.AddItem(current.UniqueName, 1);
-                                }
-                                if (UnityEngine.GUI.Button(new Rect(340f, Y, 40f, 20f), "+20"))
-                                {
-                                    _Network_Player.Inventory.AddItem(current.UniqueName, 20);
-                                }
-                                Y += 30f;
+                                _Network_Player.Inventory.AddItem(current.UniqueName, 1);
                             }
-
-                            this.scroller = Y + 15;
-                            GUI.EndScrollView();
-                            break;
+                            if (UnityEngine.GUI.Button(new Rect(340f, Y, 40f, 20f), "+20"))
+                            {
+                                _Network_Player.Inventory.AddItem(current.UniqueName, 20);
+                            }
+                            Y += 30f;
                         }
+
+                        this.scroller = Y + 15;
+                        GUI.EndScrollView();
+                        break;
+                    }
                     case 5: //Coop
-                        {
-                            break;
-                        }
+                    {
+                        break;
+                    }
                     case 6: //Dev
-                        {
-                            break;
-                        }
+                    {
+                        break;
+                    }
                     case 7: //Game
+                    {
+                        ScrollPosition = GUI.BeginScrollView(new Rect(MenuRect.xMin, Y, Width, Height - ToolbarHeight - 5), ScrollPosition, new Rect(0, 0, Width - 24, this.scroller));
+                        Y = Padding;
+
+                        if (UI.AddButton("Go to Raft", 20, 300))
                         {
-                            ScrollPosition = GUI.BeginScrollView(new Rect(MenuRect.xMin, Y, Width, Height - ToolbarHeight - 5), ScrollPosition, new Rect(0, 0, Width - 24, this.scroller));
-                            Y = Padding;
-
-                            if (UI.AddButton("Go to Raft", 20, 300))
-                            {
-                                _Player.transform.position = _Raft.transform.position + (Vector3.up * 2);
-                            }
-
-                            this.scroller = Y + 15;
-                            GUI.EndScrollView();
-                            break;
+                            _Player.transform.position = _Raft.transform.position + (Vector3.up * 2);
                         }
+
+                        this.scroller = Y + 15;
+                        GUI.EndScrollView();
+                        break;
+                    }
                 }
             }
         }
@@ -231,7 +229,7 @@ namespace RaftCheatMenu
             }
             if (_AzureSkyController == null)
             {
-                _AzureSkyController = SingletonGeneric<GameManager>.Singleton.skyController;
+                _AzureSkyController = UnityEngine.Object.FindObjectOfType<AzureSkyController>();
             }
             if (_WeatherManager == null)
             {
@@ -250,15 +248,15 @@ namespace RaftCheatMenu
             {
                 if (!visible) Time.timeScale = 1f;
             }
-
-            if (Input.GetButtonDown("flymode"))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.F3))
             {
+                ModAPI.Log.Write("Flying");
                 Cheat.FlyMode = !Cheat.FlyMode;
             }
-            
             // if clicked button
-            if (Input.GetButtonDown("menu"))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.F1))
             {
+                ModAPI.Log.Write("Menü");
                 if (visible)
                 {
                     // menu is closed

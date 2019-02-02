@@ -1,5 +1,5 @@
 <Mod ID="RaftCheatMenu">
-  <Compatible>1.01b</Compatible>
+  <Compatible>1.7</Compatible>
   <Button Standard="F1" ID="menu">
     <Name>
       <EN>Menu</EN>
@@ -13,7 +13,7 @@
       <EN>Fly Mode</EN>
     </Name>
     <Description>
-      <EN>lets you fly</EN>
+      <EN>lets you fly </EN>
     </Description>
   </Button>
   <Name>
@@ -22,5 +22,5 @@
   <Description>
     <EN>CheatMenu</EN>
   </Description>
-  <Version>1.0</Version>
+  <Version>1.2</Version>
 </Mod>
