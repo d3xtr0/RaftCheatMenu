@@ -12,9 +12,9 @@ namespace RaftCheatMenu.Overwrites
         protected float basesprintSpeed;
         protected float baseswimSpeed;
         protected float basegravity;
-        protected new bool LastFlyMode;
+        protected bool LastFlyMode;
 
-        protected new void BaseValues()
+        protected void BaseValues()
         {
             this.basenormalSpeed = this.normalSpeed;
             this.basesprintSpeed = this.sprintSpeed;

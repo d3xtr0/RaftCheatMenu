@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath\)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RaftCheatMenu</RootNamespace>
     <AssemblyName>RaftCheatMenu</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -22,334 +22,295 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    
   </ItemGroup>
   <ItemGroup>
     <Reference Include="BaseModLib">
       <HintPath>../../../libs/BaseModLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="Assembly-CSharp-firstpass">
+    <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/Assembly-CSharp-firstpass.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="Assembly-CSharp">
+    <Reference Include="Assembly-CSharp">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="Mono.Posix">
+    <Reference Include="Mono.Posix">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/Mono.Posix.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="Mono.Security">
+    <Reference Include="Mono.Security">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/Mono.Security.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="mscorlib">
+    <Reference Include="mscorlib">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/mscorlib.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="NestedPrefabs">
-      <HintPath>../../../modlib/Raft/Raft_data/Managed/NestedPrefabs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-<Reference Include="Sirenix.OdinInspector.Attributes">
+    <Reference Include="Sirenix.OdinInspector.Attributes">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/Sirenix.OdinInspector.Attributes.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="System.Configuration">
+    <Reference Include="System.Configuration">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/System.Configuration.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="System.Core">
+    <Reference Include="System.Core">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/System.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="System">
+    <Reference Include="System">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/System.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="System.Security">
+    <Reference Include="System.Security">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/System.Security.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="System.Xml">
+    <Reference Include="System.Xml">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/System.Xml.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="TextMeshPro-2017.1-1.0.56-Runtime">
-      <HintPath>../../../modlib/Raft/Raft_data/Managed/TextMeshPro-2017.1-1.0.56-Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-<Reference Include="Unity.Analytics.DataPrivacy">
+    <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/Unity.Analytics.DataPrivacy.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.AccessibilityModule">
+    <Reference Include="UnityEngine.AccessibilityModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.AccessibilityModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.AIModule">
+    <Reference Include="UnityEngine.AIModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.AIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.Analytics">
-      <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.Analytics.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-<Reference Include="UnityEngine.AnimationModule">
+    <Reference Include="UnityEngine.AnimationModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.AnimationModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.ARModule">
+    <Reference Include="UnityEngine.ARModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.ARModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.AssetBundleModule">
+    <Reference Include="UnityEngine.AssetBundleModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.AssetBundleModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.AudioModule">
+    <Reference Include="UnityEngine.AudioModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.AudioModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.BaselibModule">
+    <Reference Include="UnityEngine.BaselibModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.BaselibModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.ClothModule">
+    <Reference Include="UnityEngine.ClothModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.ClothModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.CloudWebServicesModule">
-      <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.CloudWebServicesModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-<Reference Include="UnityEngine.ClusterInputModule">
+    <Reference Include="UnityEngine.ClusterInputModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.ClusterInputModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.ClusterRendererModule">
+    <Reference Include="UnityEngine.ClusterRendererModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.ClusterRendererModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.CoreModule">
+    <Reference Include="UnityEngine.CoreModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.CrashReportingModule">
+    <Reference Include="UnityEngine.CrashReportingModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.CrashReportingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.DirectorModule">
+    <Reference Include="UnityEngine.DirectorModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.DirectorModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine">
+    <Reference Include="UnityEngine">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.FacebookModule">
-      <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.FacebookModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-<Reference Include="UnityEngine.GameCenterModule">
+    <Reference Include="UnityEngine.GameCenterModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.GameCenterModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.GridModule">
+    <Reference Include="UnityEngine.GridModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.GridModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.HotReloadModule">
+    <Reference Include="UnityEngine.HotReloadModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.HotReloadModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.ImageConversionModule">
+    <Reference Include="UnityEngine.ImageConversionModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.ImageConversionModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.IMGUIModule">
+    <Reference Include="UnityEngine.IMGUIModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.IMGUIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.InputModule">
+    <Reference Include="UnityEngine.InputModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.InputModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.JSONSerializeModule">
+    <Reference Include="UnityEngine.JSONSerializeModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.JSONSerializeModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.Networking">
+    <Reference Include="UnityEngine.Networking">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.Networking.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.ParticlesLegacyModule">
-      <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.ParticlesLegacyModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-<Reference Include="UnityEngine.ParticleSystemModule">
+    <Reference Include="UnityEngine.ParticleSystemModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.ParticleSystemModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.PerformanceReportingModule">
+    <Reference Include="UnityEngine.PerformanceReportingModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.PerformanceReportingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.Physics2DModule">
+    <Reference Include="UnityEngine.Physics2DModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.Physics2DModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.PhysicsModule">
+    <Reference Include="UnityEngine.PhysicsModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.PhysicsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.ScreenCaptureModule">
+    <Reference Include="UnityEngine.ScreenCaptureModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.ScreenCaptureModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.SharedInternalsModule">
+    <Reference Include="UnityEngine.SharedInternalsModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.SharedInternalsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.SpatialTracking">
+    <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.SpatialTracking.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.SpatialTrackingModule">
-      <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.SpatialTrackingModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-<Reference Include="UnityEngine.SpriteMaskModule">
+    <Reference Include="UnityEngine.SpriteMaskModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.SpriteMaskModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.SpriteShapeModule">
+    <Reference Include="UnityEngine.SpriteShapeModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.SpriteShapeModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.StandardEvents">
-      <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.StandardEvents.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-<Reference Include="UnityEngine.StyleSheetsModule">
+    <Reference Include="UnityEngine.StyleSheetsModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.StyleSheetsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.SubstanceModule">
+    <Reference Include="UnityEngine.SubstanceModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.SubstanceModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.TerrainModule">
+    <Reference Include="UnityEngine.TerrainModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.TerrainModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.TerrainPhysicsModule">
+    <Reference Include="UnityEngine.TerrainPhysicsModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.TerrainPhysicsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.TextRenderingModule">
+    <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.TilemapModule">
+    <Reference Include="UnityEngine.TilemapModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.TilemapModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.Timeline">
+    <Reference Include="UnityEngine.Timeline">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.Timeline.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.TimelineModule">
+    <Reference Include="UnityEngine.TimelineModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.TimelineModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.TLSModule">
+    <Reference Include="UnityEngine.TLSModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.TLSModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.UI">
+    <Reference Include="UnityEngine.UI">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.UIElementsModule">
+    <Reference Include="UnityEngine.UIElementsModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.UIElementsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.UIModule">
+    <Reference Include="UnityEngine.UIModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.UIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.UmbraModule">
+    <Reference Include="UnityEngine.UmbraModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.UmbraModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.UNETModule">
+    <Reference Include="UnityEngine.UNETModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.UNETModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.UnityAnalyticsModule">
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.UnityAnalyticsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.UnityConnectModule">
+    <Reference Include="UnityEngine.UnityConnectModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.UnityConnectModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+    <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.UnityWebRequestAudioModule">
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.UnityWebRequestModule">
+    <Reference Include="UnityEngine.UnityWebRequestModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.UnityWebRequestModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.UnityWebRequestTextureModule">
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.UnityWebRequestWWWModule">
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.VehiclesModule">
+    <Reference Include="UnityEngine.VehiclesModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.VehiclesModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.VideoModule">
+    <Reference Include="UnityEngine.VideoModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.VideoModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.VRModule">
+    <Reference Include="UnityEngine.VRModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.VRModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.WebModule">
-      <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.WebModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-<Reference Include="UnityEngine.WindModule">
+    <Reference Include="UnityEngine.WindModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.WindModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<Reference Include="UnityEngine.XRModule">
+    <Reference Include="UnityEngine.XRModule">
       <HintPath>../../../modlib/Raft/Raft_data/Managed/UnityEngine.XRModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Overwrites\FirstPersonCharacterController.cs"  />
-<Compile Include="Overwrites\PlayerStats.cs"  />
-<Compile Include="Overwrites\Weather.cs"  />
-<Compile Include="RCM.cs"  />
-<Compile Include="Utils\UI.cs"  />
-
+    <Compile Include="Overwrites\FirstPersonCharacterController.cs" />
+    <Compile Include="Overwrites\PlayerStats.cs" />
+    <Compile Include="Overwrites\Weather.cs" />
+    <Compile Include="RCM.cs" />
+    <Compile Include="Utils\UI.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

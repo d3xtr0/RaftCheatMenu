@@ -6,6 +6,7 @@ using ModAPI;
 using ModAPI.Attributes;
 using RaftCheatMenu.Utils;
 using UnityEngine;
+using UnityEngine.AzureSky;
 
 namespace RaftCheatMenu
 {
@@ -40,15 +41,16 @@ namespace RaftCheatMenu
             public static float moveAcceleration = 0.2f;
             public static float moveSpeed = 8f;
             public static float jumpAcceleration = 1f;
+            public static float fogDistance = 500f;
             public static bool fixTimeScale = false;
-            public static WeatherConnection[] _WeatherConnection;
+            public static Randomizer _WeatherConnection;
         }
 
         private void OnGUI()
         {
             if (visible)
             {
-                GUI.skin = Gui.Skin;
+                GUI.skin = Interface.Skin;
                 Width = Mathf.Clamp(Camera.main.pixelWidth / 2, 700, Camera.main.pixelWidth);
                 MenuRect = new Rect(10, 10, Mathf.Clamp(Camera.main.pixelWidth / 2, 700, Camera.main.pixelWidth), Height);
 
@@ -88,12 +90,12 @@ namespace RaftCheatMenu
 
                         if (UI.AddButton("Set Anchor"))
                         {
-                            _Raft.AddAnchor(_Raft.transform, false, null);
+                            _Raft.AddAnchor(false);
                         }
                         IncreaseY(-30);
                         if (UI.AddButton("Remove Anchor", 220))
                         {
-                            _Raft.RemoveAnchor(_Raft.transform);
+                            _Raft.RemoveAnchor(1);
                         }
 
                         this.scroller = Y + 15;
@@ -111,35 +113,44 @@ namespace RaftCheatMenu
                         {
                             if (UI.AddButton("+1h"))
                             {
-                                float at = _AzureSkyController.Azure_Timeline;
-                                at += 1f;
-                                if (at >= 24f)
+                                _AzureSkyController.timeOfDay.hour += 1f;
+                                if (_AzureSkyController.timeOfDay.hour >= 24f)
                                 {
-                                    at -= 24f;
+                                    _AzureSkyController.timeOfDay.StartNextDay(_AzureSkyController.options.repeatMode);
                                 }
-                                _AzureSkyController.AzureSetTime(at, _AzureSkyController.Azure_DayCycle);
                             }
+
                             IncreaseY(-30);
                             if (UI.AddButton("-1h", 220))
                             {
-                                float at = _AzureSkyController.Azure_Timeline;
-                                at -= 1f;
-                                if (at <= 0f)
+                                _AzureSkyController.timeOfDay.hour -= 1f;
+                                if (_AzureSkyController.timeOfDay.hour <= 0f)
                                 {
-                                    at += 24f;
+                                    _AzureSkyController.timeOfDay.hour = 23f;
                                 }
-                                _AzureSkyController.AzureSetTime(at, _AzureSkyController.Azure_DayCycle);
                             }
 
-                            UI.AddSlider(ref _AzureSkyController.Azure_FogDistance, 50, 5000, "Fog Distance");
+                            UI.AddSlider(ref Cheat.fogDistance, 50, 5000, "Fog Distance");
+                            if (UI.AddButton("Set"))
+                            {
+                                Shader.SetGlobalFloat(Shader.PropertyToID("_Azure_FogDistance"), Cheat.fogDistance);
+                            }
                         }
 
                         UI.AddLabel("Weather");
-                        foreach (var weather in Cheat._WeatherConnection)
+                        Weather[] allItems = Cheat._WeatherConnection.GetAllItems<Weather>();
+                        if (allItems != null)
                         {
-                            if (UI.AddButton(weather.weatherObject.name))
+                            foreach (Weather weather in allItems)
                             {
-                                _WeatherManager.SetWeather(weather.weatherObject.name, true);
+                                if (weather != null)
+                                {
+                                    if (UI.AddButton(weather.name))
+                                    {
+                                        base.StopAllCoroutines();
+                                        base.StartCoroutine(_WeatherManager.StartNewWeather(weather, true));
+                                    }
+                                }
                             }
                         }
 

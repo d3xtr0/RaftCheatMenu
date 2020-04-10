@@ -26,10 +26,15 @@ namespace RaftCheatMenu.Overwrites
             if (RCM.Cheat.GodMode)
             {
                 this.stat_health.NormalValue = 1f;
+                /*
                 this.canvas.hungerSlider.SetValue(this.stat_hunger.Normal.Max);
                 this.canvas.hungerSlider.SetTargetValue(this.stat_hunger.Normal.stat_targetHunger.Max);
+                */
+                this.stat_hunger.Normal.Value = 1f;
+                this.stat_hunger.Normal.NormalValue = 1f;
                 this.stat_thirst.NormalValue = 1f;
                 this.stat_thirst.stat_targetThirst.NormalValue = 1f;
+                this.stat_oxygen.NormalValue = 1f;
             }
             base.Update();
         }
